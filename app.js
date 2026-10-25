@@ -7,27 +7,21 @@ const SETTINGS = {
 };
 
 /* ------------------------------------------------------------
-   PRODUCTS: sample items and sample prices (edit freely)
-   sizes: [label, price in taka]
+   PRODUCTS: names, sizes and prices are SAMPLES. Edit freely.
+   sizes: [label, price in taka]   img: file inside /images
+   fresh: true shows it in "Fresh this week"
    ------------------------------------------------------------ */
 const PRODUCTS = [
-  { id: 1, tag: "Pure & hand-churned",  cat: "ghee-honey", name: "Pure Ghee",            bn: "গাওয়া ঘি",       icon: "🧈", bg: "#fff1c2", best: true, sizes: [["250 g", 530], ["500 g", 1020]] },
-  { id: 2, tag: "Raw, unheated",  cat: "ghee-honey", name: "Natural Honey",        bn: "খাঁটি মধু",       icon: "🍯", bg: "#fde08a", best: true, sizes: [["500 g", 750], ["1 kg", 1450]] },
-  { id: 3, tag: "Sun-cured",  cat: "pickles",    name: "Mango Pickle",         bn: "আমের আচার",      icon: "🥭", bg: "#ffd8b8", best: true, sizes: [["250 g", 220], ["500 g", 420]] },
-  { id: 4, tag: "Pure mustard",  cat: "spices-oil", name: "Mustard Oil",          bn: "সরিষার তেল",     icon: "🫙", bg: "#f6e9a3", best: true, sizes: [["500 ml", 200], ["1 ltr", 390], ["5 ltr", 1900]] },
-  { id: 5, tag: "No preservatives",  cat: "frozen",     name: "Beef Samosa",          bn: "বিফ সমুচা",      icon: "🥟", bg: "#f9d5c4", best: true, sizes: [["20 pcs", 480], ["40 pcs", 920]] },
-  { id: 6, tag: "Ground fresh",  cat: "spices-oil", name: "Chili Powder",         bn: "মরিচের গুঁড়া",   icon: "🌶️", bg: "#ffc9c0", best: true, sizes: [["200 g", 160], ["500 g", 380]] },
-  { id: 7, tag: "Natural sweetener",  cat: "sweets",     name: "Khejur Gur (Patali)",  bn: "খেজুর গুড়",     icon: "🍮", bg: "#f0d2a8", best: true, badge: "Pre-order", sizes: [["500 g", 380], ["1 kg", 740]] },
-  { id: 8, tag: "Sun-dried",  cat: "dry-fish",   name: "Loitta Shutki",        bn: "লইট্টা শুটকি",   icon: "🐟", bg: "#d6e8f2", best: true, sizes: [["250 g", 450], ["500 g", 860]] },
-
-  { id: 9, tag: "Freshly made",  cat: "frozen",     name: "Chicken Paratha",      bn: "চিকেন পরোটা",    icon: "🫓", bg: "#f6dfb8", isNew: true, sizes: [["10 pcs", 520]] },
-  { id: 10, tag: "Raw honey + nuts", cat: "ghee-honey", name: "Honey with Nuts",      bn: "হানি নাটস",      icon: "🥜", bg: "#f8dc9a", isNew: true, sizes: [["450 g", 890]] },
-  { id: 11, tag: "Sun-cured", cat: "pickles",    name: "Olive Pickle",         bn: "জলপাইয়ের আচার", icon: "🫒", bg: "#d9e8b8", isNew: true, sizes: [["250 g", 240], ["500 g", 460]] },
-  { id: 12, tag: "Unrefined", cat: "sweets",     name: "Akher Gur Powder",     bn: "আখের গুড় গুঁড়া", icon: "🍬", bg: "#efd5b4", isNew: true, sizes: [["500 g", 220], ["800 g", 340]] },
-  { id: 13, tag: "Ground fresh", cat: "spices-oil", name: "Turmeric Powder",      bn: "হলুদের গুঁড়া",   icon: "🟡", bg: "#fbe27a", sizes: [["200 g", 140], ["500 g", 320]] },
-  { id: 14, tag: "No artificial colour", cat: "pickles",    name: "Mixed Pickle",         bn: "মিক্সড আচার",    icon: "🥒", bg: "#d8ecc9", sizes: [["250 g", 200], ["500 g", 380]] },
-  { id: 15, tag: "Sun-dried", cat: "dry-fish",   name: "Chhoto Chingri Shutki", bn: "ছোট চিংড়ি শুটকি", icon: "🦐", bg: "#f9d4c9", sizes: [["200 g", 420]] },
-  { id: 16, tag: "Homemade", cat: "sweets",     name: "Homemade Pitha Box",   bn: "পিঠা বক্স",       icon: "🥮", bg: "#f4dcc2", badge: "Weekend only", sizes: [["Box of 12", 600]] }
+  { id: 1,  cat: "naru",          name: "Narkel Naru",       bn: "নারকেল নাড়ু",   img: "narkel-naru.jpg", tag: "Coconut & gur",   best: true, fresh: true, sizes: [["250 g", 320], ["500 g", 620], ["1 kg", 1200]] },
+  { id: 2,  cat: "naru",          name: "Gur Naru",          bn: "গুড়ের নাড়ু",    img: "gur-naru.jpg",    tag: "Made with gur",   best: true, sizes: [["250 g", 300], ["500 g", 580], ["1 kg", 1120]] },
+  { id: 3,  cat: "sandesh-pitha", name: "Narkel Sandesh",    bn: "নারকেল সন্দেশ",  img: "sandesh.jpg",     tag: "Hand-pressed",    best: true, fresh: true, sizes: [["12 pcs", 360], ["24 pcs", 700]] },
+  { id: 4,  cat: "sandesh-pitha", name: "Nakshi Pitha",      bn: "নকশি পিঠা",      img: "pitha.jpg",       tag: "Shaped in moulds", best: true, sizes: [["12 pcs", 300], ["24 pcs", 580]] },
+  { id: 5,  cat: "snacks",        name: "Crispy Nimki",      bn: "নিমকি",          img: "nimki.jpg",       tag: "Crisp & fresh",   best: true, sizes: [["250 g", 180], ["500 g", 340]] },
+  { id: 6,  cat: "snacks",        name: "Gojja",             bn: "গজা",            img: "gojja.jpg",       tag: "Sweet & crunchy", best: true, fresh: true, sizes: [["250 g", 220], ["500 g", 420]] },
+  { id: 7,  cat: "dry-fruits",    name: "Dry Fruits Mix",    bn: "ড্রাই ফ্রুটস মিক্স", img: "dry-fruits.jpg", tag: "Nuts & seeds",   best: true, sizes: [["250 g", 480], ["500 g", 920]] },
+  { id: 8,  cat: "achar",         name: "Homemade Achar",    bn: "ঘরে বানানো আচার", img: "achar.jpg",       tag: "Rich & spicy",    best: true, fresh: true, sizes: [["250 g", 260], ["500 g", 500]] },
+  { id: 9,  cat: "gift-box",      name: "Naru Gift Box",     bn: "নাড়ু গিফট বক্স",  img: "naru-combo.jpg",  tag: "Mixed naru",      badge: "Gift", sizes: [["Small box", 650], ["Large box", 1250]] },
+  { id: 10, cat: "gift-box",      name: "Sandesh Gift Box",  bn: "সন্দেশ গিফট বক্স", img: "sandesh-box.jpg", tag: "Pressed sandesh", badge: "Gift", sizes: [["Small box", 700], ["Large box", 1350]] }
 ];
 
 /* ------------------------------------------------------------ */
@@ -43,12 +37,12 @@ const saveCart = () => { try { localStorage.setItem("takwa-cart", JSON.stringify
 
 /* ---------- product cards ---------- */
 function cardHTML(p) {
-  const badge = p.badge ? `<span class="badge alt">${p.badge}</span>` : p.isNew ? `<span class="badge alt">New</span>` : "";
+  const badge = p.badge ? `<span class="badge alt">${p.badge}</span>` : p.fresh ? `<span class="badge alt">Fresh</span>` : "";
   const sizes = p.sizes.map((s, i) =>
     `<button type="button" class="size${i === 0 ? " is-active" : ""}" data-i="${i}">${s[0]}</button>`).join("");
   return `
   <article class="card" data-id="${p.id}" data-size="0">
-    <div class="card-img" style="background:${p.bg}" aria-hidden="true">${badge}${p.icon}</div>
+    <div class="card-img">${badge}<img src="images/${p.img}" alt="${p.name}" loading="lazy" width="480" height="480"></div>
     <div class="card-body">
       <span class="ptag">${p.tag}</span>
       <h3>${p.name}<small>${p.bn}</small></h3>
@@ -72,7 +66,7 @@ function render() {
 }
 
 function renderNew() {
-  $("#newGrid").innerHTML = PRODUCTS.filter(p => p.isNew).map(cardHTML).join("");
+  $("#newGrid").innerHTML = PRODUCTS.filter(p => p.fresh).map(cardHTML).join("");
 }
 
 function setCat(cat, scroll) {
@@ -130,7 +124,7 @@ function renderCart() {
       const [label, price] = p.sizes[l.si];
       return `
       <div class="line">
-        <div class="line-ico" style="background:${p.bg}">${p.icon}</div>
+        <img class="line-ico" src="images/${p.img}" alt="">
         <div>
           <div class="line-name">${p.name}</div>
           <div class="line-size">${label} · ${taka(price)}</div>
@@ -206,6 +200,7 @@ function toast(msg) {
 }
 
 $("#waLink").href = `https://wa.me/${SETTINGS.whatsapp}`;
+$("#giftWa").href = `https://wa.me/${SETTINGS.whatsapp}?text=${encodeURIComponent("আসসালামু আলাইকুম, আমি একটি গিফট বক্স অর্ডার করতে চাই।\nDate:\nNumber of people:")}`;
 $("#telLink").href = `tel:+${SETTINGS.whatsapp}`;
 $("#phoneText").textContent = SETTINGS.phoneDisplay;
 $("#yr").textContent = new Date().getFullYear();
